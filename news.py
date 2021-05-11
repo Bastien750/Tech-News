@@ -19,6 +19,8 @@ jesuisundev.com : - Seul site français. Pas d'API. Faire du webscrapping
 """
 import time # Make break in our program
 import sys # Use for exit
+import settings # Get all the sources
+from sources import * # Import our functions for each sources
 
 def intro():
     print("  ______    ______   ______    __  __    _   __    ______ _       __   _____\n /_  __/   / ____/  / ____/   / / / /   / | / /   / ____/| |     / /  / ___/\n  / /     / __/    / /       / /_/ /   /  |/ /   / __/   | | /| / /   \__ \ \n / /     / /___   / /___    / __  /   / /|  /   / /___   | |/ |/ /   ___/ / \n/_/     /_____/   \____/   /_/ /_/   /_/ |_/   /_____/   |__/|__/   /____/  \n\n")
