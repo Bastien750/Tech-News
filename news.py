@@ -21,6 +21,11 @@ import time # Make break in our program
 import sys # Use for exit
 import settings # Get all the sources
 from sources import * # Import our functions for each sources
+import random # Make random choice
+import requests # Make requests
+# from clint.textui import colored # Colored text
+
+headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36"}
 
 def intro():
     print("  ______    ______   ______    __  __    _   __    ______ _       __   _____\n /_  __/   / ____/  / ____/   / / / /   / | / /   / ____/| |     / /  / ___/\n  / /     / __/    / /       / /_/ /   /  |/ /   / __/   | | /| / /   \__ \ \n / /     / /___   / /___    / __  /   / /|  /   / /___   | |/ |/ /   ___/ / \n/_/     /_____/   \____/   /_/ /_/   /_/ |_/   /_____/   |__/|__/   /____/  \n\n")
@@ -35,11 +40,31 @@ def menu():
     print("1 - Get a random article")
     print("2 - Get a python article")
 
+def handle_article(article):
+    print("\n===================== Article =====================\n")
+    print(f"{article.title.title()} - {article.author} from {article.site}\n")
+    print(article.description)
+    print("")
+    print(article.link)
+    print("\n===================================================\n")
+    time.sleep(2)
+
 def handle_choice(choice):
     if choice == 0:
         sys.exit("Good bye")
     elif choice == 1:
         pass
+    elif choice == 2:
+        # list out keys and values separately and chose a random combine
+        key_list = list(settings.categories["python"].keys())
+        site = random.choice(key_list)
+        api_links = settings.categories["python"][site]
+        api_link = random.choice(api_links)
+        data = requests.get(api_link, headers=headers).json()
+        # Make our function executable
+        func = globals()[site]
+        article = func(data)
+        handle_article(article)
 
 if __name__ == '__main__':
     intro()

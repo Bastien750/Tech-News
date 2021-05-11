@@ -1,3 +1,5 @@
+import random
+
 sources_list = ["nextinpact", "catalins", "jackdomleo", "css_tricks", "thirtysecondsofcode"],
 
 sources = {
@@ -22,11 +24,11 @@ sources = {
     ],
     "thirtysecondsofcode": [
         "https://www.30secondsofcode.org/page-data/index/page-data.json", # Get the latest articles
-        "https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/python/t/date/p/1.json" # Get python latest news
+        f"https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/python/p/{random.randint(1, 11)}.json" # Get python latest news
     ],  
 }
 
 categories = {
     "all": sources,
-    "python": {"30secondsofcode": sources["thirtysecondsofcode"][1]},
+    "python": {"thirtysecondsofcode": [sources["thirtysecondsofcode"][1], ]},
 }
