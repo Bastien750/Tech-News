@@ -45,6 +45,7 @@ if __name__ == '__main__':
     intro()
     while True:
         menu()
+        print("")
         choice = int(input("What's your choice ? "))
         print("")
         handle_choice(choice)
