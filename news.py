@@ -1,6 +1,5 @@
 """
 A simple python bot that will return the articles from different website.
-I will next be able to read the article online or to switch to another article.
 Sites : 
 Nextinpact.com : - https://api-v1.nextinpact.com/api/v1/SimpleContent/list?Nb=:numberOfArticles&CategoriesIds=:id Get the last articles. CatgeoryName that interest me : Internet, Tech,        Logiciel, Culture Numérique => id = 3, 1, 2, 7
 dev.to : webscrapping to get monthly news with custom #
@@ -15,7 +14,7 @@ css-tricks.com : - https://public-api.wordpress.com/rest/v1.3/sites/45537868/sea
 30secondsofcode.org : - https://www.30secondsofcode.org/page-data/index/page-data.json Get all the latest articles
                       - https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/python/t/date/p/1.json Get python latest news
                       - Possible d'en trouver plus
-jesuisundev.com : - Seul site français. Pas d'API. Faire du webscrapping
+jesuisundev.com : - French website. No API. Do webscrapping
 """
 import time # Make break in our program
 import sys # Use for exit
