@@ -54,7 +54,6 @@ def handle_article(article):
     choice = int(input(""))
     if choice == 1:
         webbrowser.open_new(article.link)
-    time.sleep(2)
 
 def random_article(category):
     # list out keys and values separately and chose a random combine
