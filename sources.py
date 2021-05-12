@@ -1,5 +1,5 @@
 """
-Different functions that I use to handle each source
+Different functions that handle each source
 """
 from utils import *
 import random # Make random choice
