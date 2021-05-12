@@ -1,5 +1,6 @@
 """
 A simple python bot that will return the articles from different website.
+Can use medium API to add some results
 Sites : 
 Nextinpact.com : - https://api-v1.nextinpact.com/api/v1/SimpleContent/list?Nb=:numberOfArticles&CategoriesIds=:id Get the last articles. CatgeoryName that interest me : Internet, Tech,        Logiciel, Culture Numérique => id = 3, 1, 2, 7
 dev.to : webscrapping to get monthly news with custom #

@@ -35,6 +35,9 @@ sources = {
     "hemdan" : [
         "https://hashnode.com/ajax/user/publication-entries?publication=60874eb0a826f80aaefec3d7&skip=0&limit=100",
     ],
+    "robkendal" : [
+        "https://robkendal.co.uk/_next/data/KI7uZSgpmMbOdTik69fVp/tags.json", # Get all the post
+    ],
 }
 
 categories = {

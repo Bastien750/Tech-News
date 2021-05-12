@@ -114,3 +114,14 @@ def hemdan(data):
     site = "https://hemdan.hashnode.dev/"
     url = site + article["slug"]
     return Article(title, description, author, site, url)
+
+def robkendal(data):
+    """Handle data from robkendal.co.uk"""
+    articles = data["pageProps"]["allPostsData"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["description"]
+    author = "Rob Kendal"
+    site = "https://robkendal.co.uk/"
+    url = site + "blog/" + article["id"]
+    return Article(title, description, author, site, url)
