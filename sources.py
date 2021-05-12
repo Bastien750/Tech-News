@@ -4,22 +4,81 @@ Different functions that I use to handle each source
 from utils import *
 import random # Make random choice
 from article import Article
+import requests
+import settings
 
 def nextinpact(data):
     """Handle data from nextinpact.com"""
-    pass
+    articles = data["results"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["introTextMeta"]
+    authors = article["authors"]
+    if len(authors) == 0:
+        author = "Unknow"
+    else:
+        author = ""
+        for auth in authors:
+            name = auth["name"]
+            author += f"{name} -"
+    site = "https://www.nextinpact.com/"
+    url = site + "lebrief/" + str(article["contentId"]) + "/" + article["seoUrl"]
+    return Article(title, description, author, site, url)
 
 def catalins(data):
-    """Handle data from catalins.tech"""
-    pass
+    """Handle dara from catalins.tech"""
+    articles = data["posts"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["brief"]
+    author = article["author"]["name"]
+    site = "https://catalins.tech/"
+    url = site + article["slug"]
+    return Article(title, description, author, site, url)
 
 def jackdomleo(data):
-    """Handle data from jackdomleo.dev"""
-    pass
+    """Handle data from jackdomleo"""
+    articles = data["_collections"][0]["_data"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["description"]
+    author = "@jackdomleo7"
+    site = "https://jackdomleo.dev/"
+    url = article["devtoLink"]
+    return Article(title, description, author, site, url)
+
+def hashnode(data):
+    """Handle data from hashnode.com"""
+    try:
+        """Only for top articles"""
+        articles = data["posts"]
+        article = random.choice(articles)
+        title = article["title"]
+        description = article["brief"]
+        author = article["author"]["name"]
+        site = "https://hashnode.com/"
+        url = site + article["slug"]
+        return Article(title, description, author, site, url)
+    except:
+        """For top authors of the week"""
+        authors = data["result"]
+        author = random.choice(authors)
+        author_id = author["author"]["_id"]
+        data = requests.get(f"https://hashnode.com/ajax/user/more-posts-from-author?exclude={author_id}", headers=settings.headers).json()
+        return hashnode(data)
 
 def css_tricks(data):
     """Handle data from css-tricks.com"""
-    pass
+    articles = data["results"]
+    article = random.choice(articles)
+    title = article["highlight"]["title"][0]
+    description = article["highlight"]["content"][0]
+    if not description:
+        description = "No description found"
+    author = "Unknow" # Not in the API results
+    site = "https://css-tricks.com/"
+    url = article["fields"]["permalink.url.raw"]
+    return Article(title, description, author, site, url)
 
 def thirtysecondsofcode(data):
     """Handle data from 30secondsofcode.org"""
