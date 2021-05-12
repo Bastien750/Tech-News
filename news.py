@@ -24,6 +24,7 @@ from sources import * # Import our functions for each sources
 import random # Make random choice
 import requests # Make requests
 # from clint.textui import colored # Colored text
+import webbrowser # Open a new windows on browser
 
 headers = settings.headers
 
@@ -48,6 +49,12 @@ def handle_article(article):
     print("")
     print(article.link)
     print("\n===================================================\n")
+    print("Do you want to know more about this article ?")
+    print("1 - Yes")
+    print("2 - No")
+    choice = int(input(""))
+    if choice == 1:
+        webbrowser.open_new(article.link)
     time.sleep(2)
 
 def random_article(category):
