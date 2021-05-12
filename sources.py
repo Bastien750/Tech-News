@@ -57,7 +57,7 @@ def hashnode(data):
         description = article["brief"]
         author = article["author"]["name"]
         site = "https://hashnode.com/"
-        url = site + article["slug"]
+        url = article["publication"]["domain"] + "/" + article["slug"]
         return Article(title, description, author, site, url)
     except:
         """For top authors of the week"""
