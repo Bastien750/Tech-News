@@ -74,7 +74,7 @@ def css_tricks(data):
     title = article["highlight"]["title"][0]
     description = article["highlight"]["content"][0]
     if not description:
-        description = "No description found"
+        description = "No description found for this article"
     author = "Unknow" # Not in the API results
     site = "https://css-tricks.com/"
     url = article["fields"]["permalink.url.raw"]
@@ -89,4 +89,28 @@ def thirtysecondsofcode(data):
     author = "Isabelle Viktoria Maciohsek"
     site = "https://www.30secondsofcode.org"
     url = site + article["url"]
+    return Article(title, description, author, site, url)
+
+def kitze(data):
+    """Handle data from kitze.io"""
+    articles = data["pageProps"]["posts"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["metaDescription"]
+    if not description:
+        description = "No description found for this article"
+    author = "@thekitze"
+    site = "https://kitze.io"
+    url = site + "/posts/" + article["slug"]
+    return Article(title, description, author, site, url)
+
+def hemdan(data):
+    """Handle data from hemdan.hashnode.dev"""
+    articles = data["posts"]
+    article = random.choice(articles)
+    title = article["title"]
+    description = article["brief"]
+    author = article["author"]["name"]
+    site = "https://hemdan.hashnode.dev/"
+    url = site + article["slug"]
     return Article(title, description, author, site, url)

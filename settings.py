@@ -28,7 +28,13 @@ sources = {
         f"https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/blog/p/{random.randint(1, 8)}.json", # Get the recommended articles
         f"https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/blog/n/{random.randint(1, 9)}.json", # Get the newest articles
         f"https://www.30secondsofcode.org/_next/data/0CtcJSwm7kL2jfV7Xviso/python/p/{random.randint(1, 11)}.json" # Get python latest news
-    ],  
+    ],
+    "kitze": [
+        "https://kitze.io/_next/data/gW9x8KPsCqA79J_WHWFe2/posts.json", # Get all the post
+    ],
+    "hemdan" : [
+        "https://hashnode.com/ajax/user/publication-entries?publication=60874eb0a826f80aaefec3d7&skip=0&limit=100",
+    ],
 }
 
 categories = {
