@@ -33,5 +33,5 @@ sources = {
 
 categories = {
     "all": sources,
-    "python": {"thirtysecondsofcode": [sources["thirtysecondsofcode"][1], ]},
+    "python": {"thirtysecondsofcode": [sources["thirtysecondsofcode"][2], ]},
 }
