@@ -2,8 +2,6 @@ import random
 
 headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36"}
 
-sources_list = ["nextinpact", "catalins", "jackdomleo", "css_tricks", "thirtysecondsofcode"],
-
 sources = {
     "nextinpact" : [
         "https://api-v1.nextinpact.com/api/v1/SimpleContent/list?Nb=100&CategoriesIds=1", # Tech
@@ -38,9 +36,20 @@ sources = {
     "robkendal" : [
         "https://robkendal.co.uk/_next/data/KI7uZSgpmMbOdTik69fVp/tags.json", # Get all the post
     ],
+    "dailydev" : [
+        "https://api.daily.dev/graphql?operationName=AnonymousFeed&variables=%7B%22loggedIn%22%3Afalse%2C%22now%22%3A%222021-05-12T18%3A07%3A00.826Z%22%2C%22ranking%22%3A%22POPULARITY%22%2C%22filters%22%3A%7B%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22815f392e0ea6bd461eb51febb39c9cfbfba67a5005f0398768856d7426880e63%22%7D%7D", # Anonymous feed
+        "https://api.daily.dev/graphql?operationName=SearchPosts&variables=%7B%22loggedIn%22%3Afalse%2C%22now%22%3A%222021-05-12T18%3A09%3A48.353Z%22%2C%22query%22%3A%22python%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%228491369d0dcfb2781b048aa914b0eb68e2f8dd6cd3c6f94ce5287da25d6ab50d%22%7D%7D", # Get Python feed
+    ]
 }
 
 categories = {
     "all": sources,
-    "python": {"thirtysecondsofcode": [sources["thirtysecondsofcode"][2], ]},
+    "python": {
+        "thirtysecondsofcode": [
+            sources["thirtysecondsofcode"][2], 
+        ],
+        "dailydev": [
+            sources["dailydev"][1]
+        ],
+    },
 }

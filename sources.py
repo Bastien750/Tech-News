@@ -125,3 +125,17 @@ def robkendal(data):
     site = "https://robkendal.co.uk/"
     url = site + "blog/" + article["id"]
     return Article(title, description, author, site, url)
+
+def dailydev(data):
+    """Handle data from daily.dev"""
+    articles = data["data"]["feed"]["edges"]
+    article = random.choice(articles)["node"]
+    title = article["title"]
+    description = title + "..."
+    if not article["author"]:
+        author = "Unknow"
+    else:
+        author = article["author"]["name"] # Get the name if author is not null
+    site = "https://daily.dev/"
+    url = article["url"]
+    return Article(title, description, author, site, url)
