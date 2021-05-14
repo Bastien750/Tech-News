@@ -26,6 +26,9 @@ import requests # Make requests
 # from clint.textui import colored # Colored text
 import webbrowser # Open a new windows on browser
 
+# Make translation of english text
+from textblob import TextBlob
+
 headers = settings.headers
 
 def intro():
@@ -43,8 +46,12 @@ def menu():
 
 def handle_article(article):
     """Give informations about the article"""
+    title = article.title
     print("\n===================== Article =====================\n")
-    print(f"{article.title.title()} - Author : {article.author} from {article.site}\n")
+    print(f"{title.title()} - Author : {article.author} from {article.site}")
+    if TextBlob(title).detect_language() != "fr":
+        print("Traduction : " + str(TextBlob(title).translate(to="fr")))
+    print("")
     print(article.description)
     print("")
     print(article.link)
